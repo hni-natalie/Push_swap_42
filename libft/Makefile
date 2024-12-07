@@ -6,7 +6,7 @@
 #    By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/11 15:51:42 by hni-xuan          #+#    #+#              #
-#    Updated: 2024/11/28 14:12:13 by hni-xuan         ###   ########.fr        #
+#    Updated: 2024/12/06 19:13:58 by hni-xuan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
 		ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c \
 		ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
-		ft_printf/ft_printf.c ft_printf/ft_printf_utils.c
+		ft_printf/ft_printf.c ft_printf/ft_printf_utils.c \
+		gnl/get_next_line.c gnl/get_next_line_utils.c
 		
 
 BONUS_SRCS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \

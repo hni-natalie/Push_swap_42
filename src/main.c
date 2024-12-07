@@ -6,11 +6,22 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:17:35 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/03 21:36:24 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/07 12:10:42 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+# include "../push_swap.h"
+
+// static void	debug_stack(t_stack **stack)
+// {
+// 	t_stack *current = *stack;
+// 	while (current != NULL)
+// 	{
+// 		printf("%d -> ", current->value);
+// 		current = current->next;
+// 	}
+// 	printf("NULL\n");
+// }
 
 int	main(int argc, char **argv)
 {
@@ -29,11 +40,14 @@ int	main(int argc, char **argv)
 	{
 		filtered_input = to_str_arr(argv + 1);
 		input_len = check_input(filtered_input, &arr);
-		// printf("input_len = %d\n", input_len);
-		// for (int i = 0; i < 5; i++)
-		// 	printf("arr = %d ", arr[i]);
-		// printf("\n");
-		
+		// printf("size = %d\n", input_len);
+		stack_a = stack_init(arr, input_len);
+		sort_index(&stack_a, input_len);
+		push_swap(&stack_a, &stack_b, input_len);
+		if (!is_sorted(&stack_a))
+			sort_a(&stack_a);
+		free_node(&stack_a);
+		free(arr);
 	}
 }
 
@@ -60,108 +74,97 @@ char	**to_str_arr(char **argv)
 	return (str_arr);
 }
 
-int	check_input(char **filtered_input, int **arr)
+t_stack	*stack_init(int *arr, int len)
 {
-	int		num_count;
 	int		i;
-	long	num;
+	t_stack	*stack;
+	t_stack	*temp;
 
-	num_count = counts_word(filtered_input);
-	*arr = malloc(num_count * sizeof(int));
-	if (!arr)
-		return (0);
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	temp = stack;
 	i = -1;
-	while (filtered_input[++i])
+	while (++i < len)
 	{
-		num = ft_atol(filtered_input[i]);
-		if (num > INT_MAX || num < INT_MIN || non_int(filtered_input[i]))
-		{	
-			free(*arr);
-			ft_free_arr(filtered_input, num_count);
-			exit_error();
-		}
-		(*arr)[i] = (int) num;
-	}
-	ft_free_arr(filtered_input, num_count);
-	check_duplicate(*arr, num_count);
-	return (num_count);
-}
-
-int	counts_word(char **input)
-{
-	int	count;
-
-	count = 0;
-	while (input[count])
-		count++;
-	return (count);
-}
-
-void	exit_error()
-{
-	ft_putendl_fd("Error", 2);
-	exit(1);
-}
-
-long	ft_atol(char *str)
-{
-	long	sum;
-	int		neg;
-
-	sum = 0;
-	neg = 1;
-	while (*str == ' ' || (*str >= 9 && *str <= 13))
-		str++;
-	if (*str == '+' && (*(str + 1) >= '0' && *(str + 1) <= '9'))
-		str++;
-	if (*str == '-' && (*(str + 1) >= '0' && *(str + 1) <= '9'))
-	{
-		neg = -1;
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		sum = sum * 10 + (*str - '0');
-		str++;
-	}
-	return (sum * neg);
-}
-
-void	check_duplicate(int *arr, int input_len)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < input_len)
-	{
-		j = i;
-		while(++j < input_len)
+		temp->value = arr[i];
+		if ((i + 1) < len)
 		{
-			if (arr[i] == arr[j])
-				exit_error();
+			temp->next = malloc(sizeof(t_stack));
+			if (!(temp -> next))
+				return (NULL);
+			temp = temp->next;
 		}
-	}
-}
-
-int	non_int(char *input)
-{
-	if((*input == '+' || *input == '-') && *(input + 1))
-		input++;
-	while(*input)
-	{
-		if (*input >= '0' && *input <= '9')
-			input++;
 		else
-			return (1);	
+			temp->next = NULL;
 	}
-	return (0);
+	// debug_stack(stack); //debug
+	return (stack);
 }
 
-void	ft_free_arr(char **filtered_input, int len)
+void	push_swap(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	while(len--)
-		free(filtered_input[len]);
-	free(filtered_input);
+	if (is_sorted(stack_a))
+		return ;
+	else if (size == 2)
+		sa(stack_a);
+	else if (size == 3)
+		sort_three(stack_a);
+	else if (size > 3)
+		turk_sort(stack_a, stack_b);
+	// debug_stack(stack_a);
+	// debug_stack(stack_b);
 }
 
+void	sort_a(t_stack **stack_a)
+{
+	t_stack	*first;
+	int		rotate_time;
+
+	node_position(stack_a);
+	first = *stack_a;
+	while (first)
+	{
+		if (first->index == 0)
+			break ;
+		first = first->next;	
+	}
+	if (first->pos > (stack_size(stack_a) / 2))
+	{
+		rotate_time = stack_size(stack_a) - first->pos;
+		while (rotate_time--)
+			rra(stack_a);
+	}
+	else
+	{
+		rotate_time = first->pos;
+		while (rotate_time--)
+			ra(stack_a);
+	}
+	// debug_stack(stack_a);
+}
+
+/* static void	debug_stack(t_stack **stack)
+{
+	t_stack *current = *stack;
+	while (current != NULL)
+	{
+		printf("%d -> ", current->value);
+		current = current->next;
+	}
+	printf("NULL\n");
+	current = *stack;
+	while (current != NULL)
+	{
+		printf("%d -> ", current->cost_a);
+		current = current->next;
+	}
+	printf("NULL\n");
+	current = *stack;
+	while (current != NULL)
+	{
+		printf("%d -> ", current->cost_b);
+		current = current->next;
+	}
+	printf("NULL\n");
+} */

@@ -6,7 +6,7 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:17:28 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/03 17:27:33 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/06 19:12:25 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*ptr;
 	char	*new;
-	
+
 	if (!s1)
 	{
 		s1 = (char *)malloc(sizeof(char) * 1);

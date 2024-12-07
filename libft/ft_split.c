@@ -6,12 +6,11 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 17:23:58 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/03 18:07:06 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/06 19:12:17 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 static int	word_count(char const *s, char c)
 {
@@ -51,6 +50,7 @@ const char	*get_next_word(const char *s, char c, char **word)
 	*word = ft_substr(s, 0, word_len);
 	return (s + word_len);
 }
+
 /**
  * @brief function that split a string into an array of words
  * 
@@ -75,8 +75,8 @@ char	**ft_split(char const *s, char c)
 	{
 		s = get_next_word(s, c, &word);
 		if (!s)
-			break;
-		strings[i++] = word; 
+			break ;
+		strings[i++] = word;
 	}
 	strings[i] = 0;
 	return (strings);
