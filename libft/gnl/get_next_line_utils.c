@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	gnl_ft_strlen(const char *str)
 {
 	size_t	count;
 
@@ -24,11 +24,11 @@ size_t	ft_strlen(const char *str)
 	return (count);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*gnl_ft_strchr(const char *s, int c)
 {
 	int	i;
 
-	i = ft_strlen(s);
+	i = gnl_ft_strlen(s);
 	while (i > 0)
 	{
 		if (s[i] == (char)c)
@@ -38,7 +38,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*gnl_ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	len1;
 	size_t	len2;
@@ -46,8 +46,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j;
 	char	*ptr;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
+	len1 = gnl_ft_strlen(s1);
+	len2 = gnl_ft_strlen(s2);
 	ptr = (char *)malloc(len1 + len2 + 1);
 	if (!ptr)
 		return (NULL);
@@ -61,7 +61,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (ptr);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+void	*gnl_ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
@@ -72,11 +72,11 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, size * count);
+	gnl_ft_bzero(ptr, size * count);
 	return (ptr);
 }
 
-void	ft_bzero(void *s, size_t n)
+void	gnl_ft_bzero(void *s, size_t n)
 {
 	unsigned char	*ptr;
 

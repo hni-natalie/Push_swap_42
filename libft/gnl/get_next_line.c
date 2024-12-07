@@ -19,15 +19,15 @@ char	*read_line(int fd, char *current)
 	ssize_t	read_check;
 
 	read_check = INT_MAX;
-	line = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
-	while (read_check > 0 && !ft_strchr(current, '\n'))
+	line = gnl_ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	while (read_check > 0 && !gnl_ft_strchr(current, '\n'))
 	{
 		read_check = read(fd, line, BUFFER_SIZE);
 		if (read_check == -1)
 			return (free(line), NULL);
 		line[read_check] = '\0';
 		tmp = current;
-		current = ft_strjoin(current, line);
+		current = gnl_ft_strjoin(current, line);
 		free(tmp);
 	}
 	free(line);
@@ -44,7 +44,7 @@ char	*get_line(char *str)
 		return (NULL);
 	while (str[i] != '\0' && str[i] != '\n')
 		i++;
-	line = ft_calloc((i + 2), sizeof(char));
+	line = gnl_ft_calloc((i + 2), sizeof(char));
 	i = 0;
 	while (str[i] != '\0' && str[i] != '\n')
 	{
@@ -70,7 +70,7 @@ char	*rest_of_line(char *line)
 		i++;
 	if (!line[i])
 		return (free(line), NULL);
-	remainder = ft_calloc((ft_strlen(line) - i), sizeof(char));
+	remainder = gnl_ft_calloc((gnl_ft_strlen(line) - i), sizeof(char));
 	i++;
 	j = 0;
 	while (line[i])

@@ -27,10 +27,10 @@ char	*get_next_line(int fd);
 char	*get_line(char *str);
 char	*read_line(int fd, char *current);
 char	*rest_of_line(char *line);
-size_t	ft_strlen(const char *str);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
+size_t	gnl_ft_strlen(const char *str);
+char	*gnl_ft_strchr(const char *s, int c);
+char	*gnl_ft_strjoin(char const *s1, char const *s2);
+void	*gnl_ft_calloc(size_t count, size_t size);
+void	gnl_ft_bzero(void *s, size_t n);
 
 #endif
