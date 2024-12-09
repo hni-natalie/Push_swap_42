@@ -6,7 +6,7 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:42:04 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:16:03 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:29:48 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,14 @@ void	label_index(t_stack *temp, int *arr)
 	i = 0;
 	while (temp)
 	{
-		while (arr[i])
+		if (arr[i] == temp->value)
 		{
-			if (arr[i] == temp->value)
-			{
-				temp->index = i;
-				i = 0;
-				break ;
-			}
-			i++;
+			temp->index = i;
+			temp = temp->next;
+			i = 0;
 		}
-		temp = temp->next;
+		else
+			i++;
 	}
 }
 

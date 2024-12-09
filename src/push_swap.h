@@ -6,7 +6,7 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:10:54 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:09:54 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:29:54 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	pa(t_stack	**stack_b, t_stack **stack_a);
 void	pb(t_stack	**stack_a, t_stack **stack_b);
 
 // add index for each node 
-void	label_index(t_stack *temp, int *arr);
+void	label_index(t_stack **stack, int *arr);
 void	bubble_sort(int *arr, int len);
 void	sort_index(t_stack **stk, int len);
 

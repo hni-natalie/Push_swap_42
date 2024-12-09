@@ -6,7 +6,7 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:42:04 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:07:05 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:24:53 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,29 +29,27 @@ void	sort_index(t_stack **stack, int len)
 		temp = temp->next;
 	}
 	bubble_sort(sorted_arr, len);
-	temp = *stack;
-	label_index(temp, sorted_arr);
+	label_index(stack, sorted_arr);
 	free(sorted_arr);
 }
 
-void	label_index(t_stack *temp, int *arr)
+void	label_index(t_stack **stack, int *arr)
 {
 	int		i;
+	t_stack	*temp;
 
 	i = 0;
+	temp = *stack;
 	while (temp)
 	{
-		while (arr[i])
+		if (arr[i] == temp->value)
 		{
-			if (arr[i] == temp->value)
-			{
-				temp->index = i;
-				i = 0;
-				break ;
-			}
-			i++;
+			temp->index = i;
+			temp = temp->next;
+			i = 0;
 		}
-		temp = temp->next;
+		else
+			i++;
 	}
 }
 
