@@ -6,7 +6,7 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:02:22 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/06/07 13:02:25 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:00:02 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,19 @@
  */
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	int		len;
+	int		i;
+	char	*temp;
+
+	i = -1;
+	len = ft_strlen((char *)s);
+	temp = (char *)s;
+	while (++i <= len)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		if (temp[i] == (char)c)
+			return (&temp[i]);
 	}
-	if (*s == (char)c)
+	if (s[i] == (char)c)
 		return ((char *)s);
 	return (NULL);
 }

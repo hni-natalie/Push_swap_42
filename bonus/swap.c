@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 15:08:08 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:11:26 by hni-xuan         ###   ########.fr       */
+/*   Created: 2024/12/09 10:12:29 by hni-xuan          #+#    #+#             */
+/*   Updated: 2024/12/09 11:18:45 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
 void	swap(t_stack **stack)
 {
@@ -27,18 +27,15 @@ void	swap(t_stack **stack)
 void	sa(t_stack **stack_a)
 {
 	swap(stack_a);
-	ft_printf("sa\n");
 }
 
 void	sb(t_stack **stack_b)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
 }
 
 void	ss(t_stack **stack_a, t_stack **stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);
-	ft_printf("ss\n");
 }

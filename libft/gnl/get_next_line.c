@@ -6,7 +6,7 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 18:01:08 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/06/27 18:02:30 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:07:04 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,28 +101,28 @@ char	*get_next_line(int fd)
 	return (buffer);
 }
 
-/* int main(void)
-{
-	char *line;
-	char *line1;
-	int fd = open("test.txt", O_RDONLY);
-	int fd1 = open("test1.txt", O_RDONLY);
-	printf("File Descriptor: %d\n", fd);
-	printf("Buffer size: %d\n", BUFFER_SIZE);
-	printf("File Descriptor: %d\n", fd1);
-	for (int i = 0; i < 2; i++)
-	{
-		line = get_next_line(fd);
-		printf("Read: %s\n", line);
-		if (line)
-			free(line);
-	}
-	for (int j = 0; j < 2; j++)
-	{
-		line1 = get_next_line(fd1);
-		printf("Read second file: %s\n", line1);
-		free(line1);
-	}
-	close(fd);
-	return (0);
-} */
+// int main(void)
+// {
+// 	char *line;
+// 	char *line1;
+// 	int fd = open("test.txt", O_RDONLY);
+// 	int fd1 = open("test1.txt", O_RDONLY);
+// 	printf("File Descriptor: %d\n", fd);
+// 	printf("Buffer size: %d\n", BUFFER_SIZE);
+// 	printf("File Descriptor: %d\n", fd1);
+// 	for (int i = 0; i < 2; i++)
+// 	{
+// 		line = get_next_line(fd);
+// 		printf("Read: %s\n", line);
+// 		if (line)
+// 			free(line);
+// 	}
+// 	for (int j = 0; j < 2; j++)
+// 	{
+// 		line1 = get_next_line(fd1);
+// 		printf("Read second file: %s\n", line1);
+// 		free(line1);
+// 	}
+// 	close(fd);
+// 	return (0);
+// }

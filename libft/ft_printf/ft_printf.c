@@ -6,7 +6,7 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 17:06:29 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/07/04 17:06:56 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:50:13 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_printfunbr(unsigned int num)
 		return (print_len);
 	}
 	if (num >= 10)
-			print_len += ft_printfunbr(num / 10);
+		print_len += ft_printfunbr(num / 10);
 	print_len += ft_printfchar((num % 10) + '0');
 	return (print_len);
 }
@@ -115,3 +115,12 @@ int	ft_printf(const char *fmt, ...)
 	va_end(args);
 	return (output);
 }
+
+/* int main()
+{
+	int i = 14;
+	
+	ft_printf("%d\n", i);
+	ft_printf("%X\n", i);
+	ft_printf("%x\n", i);	
+} */

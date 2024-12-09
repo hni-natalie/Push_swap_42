@@ -6,16 +6,16 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:10:56 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/07 12:03:26 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:08:31 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../push_swap.h"
+#include "push_swap.h"
 
 int	is_sorted(t_stack **stack)
 {
 	t_stack	*temp;
-	
+
 	temp = *stack;
 	while (temp->next)
 	{

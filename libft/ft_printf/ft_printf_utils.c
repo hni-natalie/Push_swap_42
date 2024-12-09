@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfunbr.c                                    :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 09:39:47 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/07/06 09:39:49 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:46:20 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@ int	ft_printfstr(char *s)
 		write(1, s++, 1);
 	return (i);
 }
-static int ft_putptr(uintptr_t ptr)
+
+static int	ft_putptr(uintptr_t ptr)
 {
 	int		len;
-	char	hexa[] = "0123456789abcdef";
+	char	*hexa;
 
+	hexa = "0123456789abcdef";
 	len = 0;
 	if (ptr >= 16)
 		len += ft_putptr(ptr / 16);
 	len += write(1, &hexa[ptr % 16], 1);
-
 	return (len);
 }
 
@@ -55,9 +56,11 @@ int	ft_printfptr(uintptr_t ptr)
 int	ft_printfhexa(unsigned int num, const char format)
 {
 	int		len;
-	char	hexa_l[] = "0123456789abcdef";
-	char	hexa_u[] = "0123456789ABCDEF";
+	char	*hexa_l;
+	char	*hexa_u;
 
+	hexa_l = "0123456789abcdef";
+	hexa_u = "0123456789ABCDEF";
 	len = 0;
 	if (num >= 16)
 	{

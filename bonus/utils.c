@@ -6,11 +6,11 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:38:34 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:13:40 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:17:28 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
 void	ft_free_arr(char **filtered_input, int len)
 {

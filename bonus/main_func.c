@@ -1,43 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_func.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:17:35 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:08:04 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:15:10 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	char	**filtered_input;
-	int		input_len;
-	int		*arr;
-
-	stack_a = NULL;
-	stack_b = NULL;
-	input_len = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (0);
-	if (argc >= 2)
-	{
-		filtered_input = to_str_arr(argv + 1);
-		input_len = check_input(filtered_input, &arr);
-		stack_a = stack_init(arr, input_len);
-		sort_index(&stack_a, input_len);
-		push_swap(&stack_a, &stack_b, input_len);
-		if (!is_sorted(&stack_a))
-			sort_a(&stack_a);
-		free_node(&stack_a);
-		free(arr);
-	}
-}
+#include "bonus.h"
 
 char	**to_str_arr(char **argv)
 {
@@ -89,41 +62,16 @@ t_stack	*stack_init(int *arr, int len)
 	return (stack);
 }
 
-void	push_swap(t_stack **stack_a, t_stack **stack_b, int size)
+int	is_sorted(t_stack **stack)
 {
-	if (is_sorted(stack_a))
-		return ;
-	else if (size == 2)
-		sa(stack_a);
-	else if (size == 3)
-		sort_three(stack_a);
-	else if (size > 3)
-		turk_sort(stack_a, stack_b);
-}
+	t_stack	*temp;
 
-void	sort_a(t_stack **stack_a)
-{
-	t_stack	*first;
-	int		rotate_time;
-
-	node_position(stack_a);
-	first = *stack_a;
-	while (first)
+	temp = *stack;
+	while (temp->next)
 	{
-		if (first->index == 0)
-			break ;
-		first = first->next;
+		if (temp->value > temp->next->value)
+			return (0);
+		temp = temp->next;
 	}
-	if (first->pos > (stack_size(stack_a) / 2))
-	{
-		rotate_time = stack_size(stack_a) - first->pos;
-		while (rotate_time--)
-			rra(stack_a);
-	}
-	else
-	{
-		rotate_time = first->pos;
-		while (rotate_time--)
-			ra(stack_a);
-	}
+	return (1);
 }

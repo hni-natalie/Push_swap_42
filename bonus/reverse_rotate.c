@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 13:59:54 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:10:41 by hni-xuan         ###   ########.fr       */
+/*   Created: 2024/12/09 10:21:04 by hni-xuan          #+#    #+#             */
+/*   Updated: 2024/12/09 11:17:56 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
 void	reverse_rotate(t_stack **stack)
 {
@@ -33,18 +33,15 @@ void	reverse_rotate(t_stack **stack)
 void	rra(t_stack **stack_a)
 {
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
 }
 
 void	rrb(t_stack **stack_b)
 {
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
-	ft_printf("rrr\n");
 }

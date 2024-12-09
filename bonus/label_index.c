@@ -6,11 +6,11 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 14:42:04 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:07:05 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:16:03 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
 void	sort_index(t_stack **stack, int len)
 {

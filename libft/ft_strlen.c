@@ -6,7 +6,7 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 15:15:05 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/06/03 15:21:27 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:03:35 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ size_t	ft_strlen(const char *str)
 	size_t	count;
 
 	count = 0;
-	while (*str)
-	{
-		str++;
+	while (str[count])
 		count++;
-	}
 	return (count);
 }
 

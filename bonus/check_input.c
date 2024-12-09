@@ -6,11 +6,11 @@
 /*   By: hni-xuan <hni-xuan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 21:40:12 by hni-xuan          #+#    #+#             */
-/*   Updated: 2024/12/09 11:01:39 by hni-xuan         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:16:52 by hni-xuan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
 int	check_input(char **filtered_input, int **arr)
 {
